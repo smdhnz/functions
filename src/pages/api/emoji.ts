@@ -22,7 +22,7 @@ export default async function handler(req: NextRequest) {
     messages: [
       {
         role: "user",
-        content: `Be sure to respond with an appropriate emoji for this sentence '${text}'`,
+        content: `Please respond with an appropriate emoji for this sentence '${text}'`,
       },
     ],
   };
