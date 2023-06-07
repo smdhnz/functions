@@ -9,7 +9,6 @@ export default async function handler(req: NextRequest) {
   // Params
   const { searchParams } = new URL(req.url);
   const key = searchParams.get("key") ?? "";
-  const targ = searchParams.get("targ") ?? "en";
   const text = searchParams.get("text") ?? "";
 
   // Auth
@@ -23,9 +22,7 @@ export default async function handler(req: NextRequest) {
     messages: [
       {
         role: "user",
-        content:
-          `translate({ text: "${text}", targetLang: "${targ}", sourceLang: "auto" })\n` +
-          `(Important!!!: Output only the execution result.)`,
+        content: `Respond with an appropriate emoji for this sentence '${text}'`,
       },
     ],
   };
@@ -53,12 +50,5 @@ export default async function handler(req: NextRequest) {
 
   const result = data.choices[0].message.content;
 
-  return new Response(
-    result
-      .trim()
-      .replace(/^"/, "")
-      .replace(/"$/, "")
-      .replace(/^「/, "")
-      .replace(/」$/, "")
-  );
+  return new Response(result);
 }
