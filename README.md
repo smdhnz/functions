@@ -18,10 +18,7 @@ Response
 - `targ`: Translation target language code
 - `text`: Content
 
-Response
+## Text to Emoji | https://functions-smdhnz.vercel.app/api/emoji?key=&text=
 
-```json
-{
-  "result": ""
-}
-```
+- `key`: Auth key
+- `text`: From text
