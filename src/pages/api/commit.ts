@@ -18,7 +18,6 @@ export default async function handler(req: NextRequest) {
 
   const payload = {
     model: "gpt-3.5-turbo",
-    temperature: 0,
     messages: [
       {
         role: "system",
